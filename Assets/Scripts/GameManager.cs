@@ -12,7 +12,8 @@ public class GameManager : MonoBehaviour
     private Invaders invaders;
     private MysteryShip mysteryShip;
     private Bunker[] bunkers;
-    private Blood bloodparent;
+    public Blood bloodprefab;
+    public Transform Bholder;
 
     //Används ej just nu, men ni kan använda de senare
     public int score { get; private set; } = 0;
@@ -44,7 +45,6 @@ public class GameManager : MonoBehaviour
         invaders = FindObjectOfType<Invaders>();
         mysteryShip = FindObjectOfType<MysteryShip>();
         bunkers = FindObjectsOfType<Bunker>();
-        bloodparent = FindObjectOfType<Blood>();
 
         NewGame();
     }
@@ -112,9 +112,9 @@ public class GameManager : MonoBehaviour
     {
         invader.gameObject.SetActive(false);
 
-        Vector3 position = new Vector3(invader.transform.position.x, invader.transform.position.y, invader.transform.position.z);
+        Vector3 position = invader.transform.position;
 
-        Instantiate(bloodparent, position, Quaternion.identity);
+        Instantiate(bloodprefab, position, Quaternion.identity, Bholder);
 
         if (invaders.GetInvaderCount() == 0)
         {

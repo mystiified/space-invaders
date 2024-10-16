@@ -1112,6 +1112,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1acc9c4c08cea24d84f9c5599563469, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bloodprefab: {fileID: 591056432162634169, guid: f2c7895c3ac7f144fb5deb98a02ac4a2, type: 3}
+  Bholder: {fileID: 305925762}
 --- !u!4 &1908716522
 Transform:
   m_ObjectHideFlags: 0
