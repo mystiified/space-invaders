@@ -112,9 +112,7 @@ public class GameManager : MonoBehaviour
     {
         invader.gameObject.SetActive(false);
 
-        Vector3 position = invader.transform.position;
-
-        Instantiate(bloodprefab, position, Quaternion.identity, Bholder);
+        Instantiate(bloodprefab, invader.transform.position, Quaternion.identity, Bholder);
 
         if (invaders.GetInvaderCount() == 0)
         {

@@ -1,30 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Blood : MonoBehaviour
 {
     SpriteRenderer sr;
-    public Material mat;
-    string name;
+    public GameObject bloodmonster;
 
     // Start is called before the first frame update
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
-        StartCoroutine(DisappearingAct());
+        StartCoroutine(BloodMonster());
     }
 
-    IEnumerator DisappearingAct()
+    IEnumerator BloodMonster()
     {
-        Color c = new Color(255, 255, 255, (255 / 1.1f));
         yield return new WaitForSeconds(1);
-
-        for (int i = 0; i < 10; i++)
+        float rand = Random.Range(0.0f, 10.0f);
+        if (rand > 8.0f)
         {
-            yield return new WaitForSeconds(0.25f);
-            c.a = 255 * (0.9f - 0.1f * i);
-            sr.color = c;
+            Instantiate(bloodmonster, transform.position, Quaternion.identity);
         }
+        Destroy(gameObject);
     }
 }
