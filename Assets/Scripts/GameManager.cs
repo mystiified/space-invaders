@@ -84,11 +84,11 @@ public class GameManager : MonoBehaviour
     {
         if(lives > 0)
         {
+            lives -= 1;
             Vector3 position = player.transform.position;
             position.x = 0f;
             player.transform.position = position;
             player.gameObject.SetActive(true);
-            lives -= 1;
         }
        
     }
