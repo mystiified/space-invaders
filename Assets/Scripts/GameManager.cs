@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     private MysteryShip mysteryShip;
     private Bunker[] bunkers;
 
+    public bool playerHit = false;
+
     //Används ej just nu, men ni kan använda de senare
     public int score { get; private set; } = 0;
     public int lives { get; private set; } = 3;
@@ -103,6 +105,7 @@ public class GameManager : MonoBehaviour
     {
 
         player.gameObject.SetActive(false);
+        playerHit = true;
 
     }
 
