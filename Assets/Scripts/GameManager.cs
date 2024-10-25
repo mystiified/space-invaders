@@ -103,9 +103,8 @@ public class GameManager : MonoBehaviour
 
     public void OnPlayerKilled(Player player)
     {
-
         player.gameObject.SetActive(false);
-
+        Instantiate(bloodprefab, player.gameObject.transform.position, Quaternion.identity, Bholder);
     }
 
     public void OnInvaderKilled(Invader invader)

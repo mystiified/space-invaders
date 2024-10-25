@@ -6,13 +6,13 @@ using UnityEngine;
 
 public class Blood : MonoBehaviour
 {
-    SpriteRenderer sr;
-    public GameObject bloodmonster;
+    public GameObject[] bloodmonster;
+    public Transform bholder;
 
     // Start is called before the first frame update
     void Start()
     {
-        sr = GetComponent<SpriteRenderer>();
+        bholder = FindObjectOfType<Transform>();
         StartCoroutine(BloodMonster());
     }
 
@@ -20,9 +20,10 @@ public class Blood : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         float rand = Random.Range(0.0f, 10.0f);
+        int randmonster = Random.Range(0, 1);
         if (rand > 8.0f)
         {
-            Instantiate(bloodmonster, transform.position, Quaternion.identity);
+            Instantiate(bloodmonster[randmonster], transform.position, Quaternion.identity, bholder);
         }
         Destroy(gameObject);
     }

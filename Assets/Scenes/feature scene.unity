@@ -1112,7 +1112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1acc9c4c08cea24d84f9c5599563469, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bloodprefab: {fileID: 591056432162634169, guid: f2c7895c3ac7f144fb5deb98a02ac4a2, type: 3}
+  bloodprefab: {fileID: 4957891950798232937, guid: f2c7895c3ac7f144fb5deb98a02ac4a2, type: 3}
   Bholder: {fileID: 305925762}
 --- !u!4 &1908716522
 Transform:
@@ -1402,6 +1402,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2126683177}
   - component: {fileID: 2126683176}
+  - component: {fileID: 2126683178}
   m_Layer: 0
   m_Name: Edge
   m_TagString: Untagged
@@ -1469,6 +1470,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &2126683178
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2126683175}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -97,3 +97,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c0c3cbe3394cc148b8e70d2454929a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bloodmonster:
+  - {fileID: 7984023686737506243, guid: 5e93507f9ebedf340aec04aec16996c4, type: 3}
+  - {fileID: 1778280843113831227, guid: d719c12f78be2e74d825557d455cc9c1, type: 3}

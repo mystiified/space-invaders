@@ -39,12 +39,26 @@ public class Invaders : MonoBehaviour
             Vector2 centerOffset = new Vector2(-width * 0.5f, -height * 0.5f);
             Vector3 rowPosition = new Vector3(centerOffset.x, (2f * r) + centerOffset.y, 0f);
             
+            if (r == 4)
+            {
+                col = 8;
+            }
+
             for (int c = 0; c < col; c++)
             {
                 Invader tempInvader = Instantiate(prefab[r], transform);
 
                 Vector3 position = rowPosition;
-                position.x += 2f * c;
+
+                if (r != 4)
+                {
+                    position.x += 2f * c;
+                }
+                else
+                {
+                    position.x += 2.87f * c;
+                }
+
                 tempInvader.transform.localPosition = position;
             }
         }
