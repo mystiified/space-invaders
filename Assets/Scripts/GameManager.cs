@@ -12,10 +12,12 @@ public class GameManager : MonoBehaviour
     private Invaders invaders;
     private MysteryShip mysteryShip;
     private Bunker[] bunkers;
+    public Blood bloodprefab;
+    public Transform Bholder;
 
     public bool playerHit = false;
 
-    //Används ej just nu, men ni kan använda de senare
+    //AnvÃ¤nds ej just nu, men ni kan anvÃ¤nda de senare
     public int score { get; private set; } = 0;
     public int lives { get; private set; } = 3;
 
@@ -78,17 +80,23 @@ public class GameManager : MonoBehaviour
         Respawn();
     }
 
-    private void Respawn()
+    public void Respawn()
     {
-        Vector3 position = player.transform.position;
-        position.x = 0f;
-        player.transform.position = position;
-        player.gameObject.SetActive(true);
+        if(lives > 0)
+        {
+            Vector3 position = player.transform.position;
+            position.x = 0f;
+            player.transform.position = position;
+            player.gameObject.SetActive(true);
+            lives -= 1;
+        }
+       
     }
 
     private void GameOver()
     {
         invaders.gameObject.SetActive(false);
+
     }
 
     private void SetScore(int score)
@@ -103,17 +111,17 @@ public class GameManager : MonoBehaviour
 
     public void OnPlayerKilled(Player player)
     {
-
         player.gameObject.SetActive(false);
         playerHit = true;
-
+        Instantiate(bloodprefab, player.gameObject.transform.position, Quaternion.identity, Bholder);
     }
+    
 
     public void OnInvaderKilled(Invader invader)
     {
         invader.gameObject.SetActive(false);
 
-       
+        Instantiate(bloodprefab, invader.transform.position, Quaternion.identity, Bholder);
 
         if (invaders.GetInvaderCount() == 0)
         {
