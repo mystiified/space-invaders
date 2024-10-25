@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     private Invaders invaders;
     private MysteryShip mysteryShip;
     private Bunker[] bunkers;
+    public Blood bloodprefab;
+    public Transform Bholder;
 
     //Används ej just nu, men ni kan använda de senare
     public int score { get; private set; } = 0;
@@ -101,16 +103,15 @@ public class GameManager : MonoBehaviour
 
     public void OnPlayerKilled(Player player)
     {
-
         player.gameObject.SetActive(false);
-
+        Instantiate(bloodprefab, player.gameObject.transform.position, Quaternion.identity, Bholder);
     }
 
     public void OnInvaderKilled(Invader invader)
     {
         invader.gameObject.SetActive(false);
 
-       
+        Instantiate(bloodprefab, invader.transform.position, Quaternion.identity, Bholder);
 
         if (invaders.GetInvaderCount() == 0)
         {
