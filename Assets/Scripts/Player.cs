@@ -31,19 +31,26 @@ public class Player : MonoBehaviour
         position.x = Mathf.Clamp(position.x, leftEdge.x, rightEdge.x);
 
         transform.position = position;
-        
+
 
         if (Input.GetKeyDown(KeyCode.Space) && laser == null)
         {
             laser = Instantiate(laserPrefab, transform.position, Quaternion.identity);
         }
-    }
 
+       
+
+    }
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Missile") || collision.gameObject.layer == LayerMask.NameToLayer("Invader"))
         {
             GameManager.Instance.OnPlayerKilled(this);
+
+            GameManager.Instance.Respawn();
         }
+
+        
     }
 }

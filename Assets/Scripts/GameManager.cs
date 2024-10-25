@@ -78,17 +78,23 @@ public class GameManager : MonoBehaviour
         Respawn();
     }
 
-    private void Respawn()
+    public void Respawn()
     {
-        Vector3 position = player.transform.position;
-        position.x = 0f;
-        player.transform.position = position;
-        player.gameObject.SetActive(true);
+        if(lives > 0)
+        {
+            Vector3 position = player.transform.position;
+            position.x = 0f;
+            player.transform.position = position;
+            player.gameObject.SetActive(true);
+            lives -= 1;
+        }
+       
     }
 
     private void GameOver()
     {
         invaders.gameObject.SetActive(false);
+
     }
 
     private void SetScore(int score)
@@ -106,6 +112,7 @@ public class GameManager : MonoBehaviour
         player.gameObject.SetActive(false);
         Instantiate(bloodprefab, player.gameObject.transform.position, Quaternion.identity, Bholder);
     }
+    
 
     public void OnInvaderKilled(Invader invader)
     {
