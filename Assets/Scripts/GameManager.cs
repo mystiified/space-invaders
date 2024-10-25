@@ -15,7 +15,9 @@ public class GameManager : MonoBehaviour
     public Blood bloodprefab;
     public Transform Bholder;
 
-    //Anv‰nds ej just nu, men ni kan anv‰nda de senare
+    public bool playerHit = false;
+
+    //Anv√§nds ej just nu, men ni kan anv√§nda de senare
     public int score { get; private set; } = 0;
     public int lives { get; private set; } = 3;
 
@@ -110,6 +112,7 @@ public class GameManager : MonoBehaviour
     public void OnPlayerKilled(Player player)
     {
         player.gameObject.SetActive(false);
+        playerHit = true;
         Instantiate(bloodprefab, player.gameObject.transform.position, Quaternion.identity, Bholder);
     }
     
